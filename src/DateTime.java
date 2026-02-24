@@ -24,25 +24,22 @@ class Result {
 
 public class DateTime {
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader =
-                new BufferedReader(new InputStreamReader(System.in));
-
-        BufferedWriter bufferedWriter =
-                new BufferedWriter(new OutputStreamWriter(System.out));
-
-        String[] firstMultipleInput =
-                bufferedReader.readLine().trim().split(" ");
-
-        int month = Integer.parseInt(firstMultipleInput[0]);
-        int day = Integer.parseInt(firstMultipleInput[1]);
-        int year = Integer.parseInt(firstMultipleInput[2]);
-
-        String res = Result.findDay(month, day, year);
-
-        bufferedWriter.write(res);
-        bufferedWriter.newLine();
-        bufferedWriter.flush(); // important for stdout
-
-        bufferedReader.close();
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
+                BufferedWriter bufferedWriter =
+                        new BufferedWriter(new OutputStreamWriter(System.out));
+                
+                String[] firstMultipleInput =
+                        bufferedReader.readLine().trim().split(" ");
+                
+                int month = Integer.parseInt(firstMultipleInput[0]);
+                int day = Integer.parseInt(firstMultipleInput[1]);
+                int year = Integer.parseInt(firstMultipleInput[2]);
+                
+                String res = Result.findDay(month, day, year);
+                
+                bufferedWriter.write(res);
+                bufferedWriter.newLine();
+                bufferedWriter.flush(); // important for stdout
+        }
     }
 }

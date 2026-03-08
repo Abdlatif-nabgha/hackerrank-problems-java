@@ -6,7 +6,7 @@ public class DuplicateWords {
 
     public static void main(String[] args) {
 
-        String regex = "\\b(\\+w)(\\s+\\1\\b)+";
+        String regex = "\\b(\\w+)(\\s+\\1\\b)+";
         Pattern p = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
 
         try (Scanner in = new Scanner(System.in)) {
